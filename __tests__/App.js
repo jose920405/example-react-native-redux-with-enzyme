@@ -31,6 +31,10 @@ let render = wrapper.dive();
 
 describe('Init Test', () => {
 
+  test('>>>>> Render Correctly', () => {
+    expect(wrapper).toHaveLength(1)
+  })
+
   let wrapper = updateShallowComp();
 
   test('>>>>> Login button Press', () => {
@@ -43,16 +47,14 @@ describe('Init Test', () => {
     console.log('state1 ===> ', state1);
 
     const textInput = render.find('TextInput').first();
-    console.log(`textInput2 ====>`, textInput.getNode().props);
 
     textInput.first().simulate('changeText', 'My new value inside!!!')
 
     updateAllWrapperComp()
 
     const textInput2 = render.find('TextInput').first();
-    console.log(`textInput2 ====>`, textInput2.getNode().props);
 
     const state2 = store.getState();
-    console.log('state2 ===> ', state2);
+    console.log('state2 ===> ', state2); // Show me correctly the new value inside inputValue state.
   });
 })
